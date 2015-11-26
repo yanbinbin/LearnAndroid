@@ -1,4 +1,4 @@
-package com.yangfuhai.asimplecachedemo.beans;
+package com.example.test.asimplecachedemo.beans;
 
 import java.io.Serializable;
 

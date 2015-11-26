@@ -64,9 +64,6 @@ public class MainActivity extends ListActivity {
                     activityIntent(resolveInfo.activityInfo.packageName,
                             resolveInfo.activityInfo.name));
             result.add(temp);
-            Log.d("bb", "title = " + resolveInfo.activityInfo.labelRes);
-            Log.d("bb", "intent = "
-                    + resolveInfo.activityInfo.applicationInfo.packageName);
         }
         // Collections.sort(result, sDisplayNameComparator);
         return result;
@@ -112,7 +109,5 @@ public class MainActivity extends ListActivity {
         Intent intent = new Intent((Intent)map.get("intent"));
         intent.addCategory("android.intent.category.bb");
         startActivity(intent);
-        Toast.makeText(MainActivity.this, ((String)map.get("title")),
-                Toast.LENGTH_SHORT).show();
     }
 }

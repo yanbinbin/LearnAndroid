@@ -1,4 +1,4 @@
-package com.yangfuhai.asimplecachedemo;
+package com.example.test.asimplecachedemo;
 
 import org.afinal.simplecache.ACache;
 import org.json.JSONException;

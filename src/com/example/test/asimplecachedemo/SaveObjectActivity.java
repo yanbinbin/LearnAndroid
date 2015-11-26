@@ -1,8 +1,7 @@
-package com.yangfuhai.asimplecachedemo;
+package com.example.test.asimplecachedemo;
 
 import org.afinal.simplecache.ACache;
 
-import com.yangfuhai.asimplecachedemo.beans.UserBean;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.test.R;
+import com.example.test.asimplecachedemo.beans.UserBean;
 /**
  * 
  * @ClassName: SaveObjectActivity

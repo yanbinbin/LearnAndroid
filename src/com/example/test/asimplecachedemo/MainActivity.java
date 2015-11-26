@@ -1,4 +1,4 @@
-package com.yangfuhai.asimplecachedemo;
+package com.example.test.asimplecachedemo;
 
 import android.app.Activity;
 import android.content.Intent;
