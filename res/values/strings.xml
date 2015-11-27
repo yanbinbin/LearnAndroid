@@ -16,4 +16,5 @@
     <string name="item_asimplecache">ASimpleCache缓存测试</string>
     <string name="item_draw">测试绘图</string>
     <string name="item_reflect">反射测试</string>
+    <string name="item_proxy">代理</string>
 </resources>
