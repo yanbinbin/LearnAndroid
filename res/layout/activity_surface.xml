@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DrawTest" >
+
+    <Button 
+        android:id="@+id/surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试自定义surfaceview"/>
+    <Button 
+        android:id="@+id/surfaceview_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="surfaceview播放视频"/>
+    <Button 
+        android:id="@+id/surfaceview_draw_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试划线"/>
+
+</LinearLayout>

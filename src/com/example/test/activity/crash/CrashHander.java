@@ -4,7 +4,7 @@
  * Rights Reserved.
  */
 
-package com.example.test.activity.helper;
+package com.example.test.activity.crash;
 
 import java.io.File;
 import java.io.FileOutputStream;

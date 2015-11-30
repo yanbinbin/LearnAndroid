@@ -106,6 +106,15 @@
                 <category android:name="android.intent.category.bb" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.TestSurfaceView"
+            android:label="@string/item_surface_view" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.test.asimplecachedemo.AboutActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveBitmapActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveJsonObjectActivity" />
@@ -117,6 +126,12 @@
         <activity android:name="com.example.test.asimplecachedemo.SaveJsonArrayActivity" >
         </activity>
         <activity android:name="com.example.test.draw.CanvasActivity" >
+        </activity>
+        <activity android:name="com.example.test.surfaceview.MySurfaceViewActivity" >
+        </activity>
+        <activity android:name="com.example.test.surfaceview.MySurfaceViewVideoActivity" >
+        </activity>
+        <activity android:name="com.example.test.surfaceview.TestSurfaceviewDrawLine" >
         </activity>
     </application>
 

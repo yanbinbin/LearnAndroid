@@ -17,4 +17,5 @@
     <string name="item_draw">测试绘图</string>
     <string name="item_reflect">反射测试</string>
     <string name="item_proxy">代理</string>
+    <string name="item_surface_view">测试surfaceView</string>
 </resources>
