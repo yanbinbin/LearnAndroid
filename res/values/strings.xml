@@ -18,4 +18,6 @@
     <string name="item_reflect">反射测试</string>
     <string name="item_proxy">代理</string>
     <string name="item_surface_view">测试surfaceView</string>
+    <string name="item_app_update_increase">测试应用增量更新</string>
+    <string name="item_serializable_parcelable">测试序列化</string>
 </resources>

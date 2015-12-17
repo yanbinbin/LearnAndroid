@@ -115,6 +115,24 @@
                 <category android:name="android.intent.category.bb" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.TestAppUpdateIncrease"
+            android:label="@string/item_app_update_increase" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.TestSerializableAndParcelable"
+            android:label="@string/item_serializable_parcelable" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.test.asimplecachedemo.AboutActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveBitmapActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveJsonObjectActivity" />
