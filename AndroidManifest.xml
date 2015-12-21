@@ -5,6 +5,7 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.ybb.test"/>
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -135,7 +136,8 @@
         </activity>
         <activity
             android:name=".activity.TestBinderActivity"
-            android:label="@string/item_binder" >
+            android:label="@string/item_binder" 
+            android:permission="com.ybb.test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

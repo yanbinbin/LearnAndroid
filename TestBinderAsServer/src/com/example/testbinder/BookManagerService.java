@@ -19,6 +19,7 @@ import com.example.test.binder.IOnNewBookArrivedListener;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
@@ -77,6 +78,12 @@ public class BookManagerService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO Auto-generated method stub
+        int check = checkCallingOrSelfPermission("com.ybb.test");
+        if (check == PackageManager.PERMISSION_DENIED) {
+            Log.d("bb", "权限不足");
+            return null;
+        }
+        Log.d("bb", "权限验证ok");
         return mBinder;
     }
 

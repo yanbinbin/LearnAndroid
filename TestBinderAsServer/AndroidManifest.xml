@@ -8,6 +8,10 @@
         android:minSdkVersion="22"
         android:targetSdkVersion="22" />
 
+    <permission
+        android:name="com.ybb.test">
+    </permission>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -23,17 +27,17 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name="com.example.testbinder.BinderRemoteService" >
+        <service android:name="com.example.testbinder.BinderRemoteService" >
             <intent-filter>
-                <action android:name="com.bb.com"/>
+                <action android:name="com.bb.com" />
             </intent-filter>
         </service>
         <service
             android:name="com.example.testbinder.BookManagerService"
-            android:process=":remote" >
+            android:process=":remote"
+            android:permission="com.ybb.test" >
             <intent-filter>
-                <action android:name="com.bb.test.aidl"/>
+                <action android:name="com.bb.test.aidl" />
             </intent-filter>
         </service>
     </application>
