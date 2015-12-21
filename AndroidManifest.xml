@@ -6,6 +6,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.ybb.test"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -138,6 +139,15 @@
             android:name=".activity.TestBinderActivity"
             android:label="@string/item_binder" 
             android:permission="com.ybb.test">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.volley.VolleyActivity"
+            android:label="@string/item_volley" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
