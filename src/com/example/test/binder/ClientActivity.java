@@ -20,10 +20,13 @@ import java.text.SimpleDateFormat;
 import com.example.test.R;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
@@ -72,6 +75,18 @@ public class ClientActivity extends Activity implements OnClickListener{
         };
     };
 
+    private void testBinderPool(Context context) {
+        BinderPool binderPool = BinderPool.getInstance(context);
+        ICompute computeBinder = (ICompute)binderPool.queryBinder(BinderPool.CODE_BINDER_COMPUTE);
+        IPrint print = (IPrint)binderPool.queryBinder(BinderPool.CODE_BINDER_PRINT);
+        try {
+            print.print("开始计算。。。compute = " + computeBinder);
+            print.print("1 +3 = " + computeBinder.add(1, 3));
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     /*
      * (non-Javadoc)
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -80,21 +95,22 @@ public class ClientActivity extends Activity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_test_socket);
-        mInfoView = (TextView) findViewById(R.id.info);
-        mInputText = (EditText) findViewById(R.id.input);
-        mSendButton = (Button) findViewById(R.id.send);
-        mSendButton.setOnClickListener(this);
-        Intent intent = new Intent(this, SocketService.class);
-        startService(intent);
-        new Thread(new Runnable() {
-            
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                connectToServer();
-            }
-        }).start();
+        testBinderPool(this);
+//        setContentView(R.layout.layout_test_socket);
+//        mInfoView = (TextView) findViewById(R.id.info);
+//        mInputText = (EditText) findViewById(R.id.input);
+//        mSendButton = (Button) findViewById(R.id.send);
+//        mSendButton.setOnClickListener(this);
+//        Intent intent = new Intent(this, SocketService.class);
+//        startService(intent);
+//        new Thread(new Runnable() {
+//            
+//            @Override
+//            public void run() {
+//                // TODO Auto-generated method stub
+//                connectToServer();
+//            }
+//        }).start();
     }
 
     /* (non-Javadoc)

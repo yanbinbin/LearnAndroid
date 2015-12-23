@@ -8,10 +8,11 @@
         android:minSdkVersion="22"
         android:targetSdkVersion="22" />
 
-    <permission
-        android:name="com.ybb.test">
+    <permission android:name="com.ybb.test" >
     </permission>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -34,10 +35,20 @@
         </service>
         <service
             android:name="com.example.testbinder.BookManagerService"
-            android:process=":remote"
-            android:permission="com.ybb.test" >
+            android:permission="com.ybb.test"
+            android:process=":remote" >
             <intent-filter>
                 <action android:name="com.bb.test.aidl" />
+            </intent-filter>
+        </service>
+        <service android:name="com.example.testbinder.SocketService" >
+            <intent-filter>
+                <action android:name="com.bb.test.socket" />
+            </intent-filter>
+        </service>
+        <service android:name="com.example.testbinder.BinderPoolService" >
+            <intent-filter>
+                <action android:name="com.bb.test.binderpoolservice" />
             </intent-filter>
         </service>
     </application>

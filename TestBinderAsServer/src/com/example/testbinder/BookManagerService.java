@@ -71,6 +71,16 @@ public class BookManagerService extends Service {
             mListeners.unregister(listener);
             Log.d("bb", "解注后监听对象：" + mListeners.getRegisteredCallbackCount());
         }
+        
+        public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws RemoteException {
+            int check = checkCallingOrSelfPermission("com.ybb.test");
+            if (check == PackageManager.PERMISSION_DENIED) {
+                Log.d("bb", "权限不足");
+                return false;
+            }
+            Log.d("bb", "权限验证ok");
+            return true;
+        };
     };
     /* (non-Javadoc)
      * @see android.app.Service#onBind(android.content.Intent)
@@ -78,12 +88,6 @@ public class BookManagerService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO Auto-generated method stub
-        int check = checkCallingOrSelfPermission("com.ybb.test");
-        if (check == PackageManager.PERMISSION_DENIED) {
-            Log.d("bb", "权限不足");
-            return null;
-        }
-        Log.d("bb", "权限验证ok");
         return mBinder;
     }
 
