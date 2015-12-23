@@ -172,6 +172,10 @@
         </activity>
         <activity android:name="com.example.test.surfaceview.TestSurfaceviewDrawLine" >
         </activity>
+        <activity android:name="com.example.test.binder.ClientActivity" >
+        </activity>
+        <service android:name="com.example.test.binder.SocketService" >
+        </service>
     </application>
 
 </manifest>

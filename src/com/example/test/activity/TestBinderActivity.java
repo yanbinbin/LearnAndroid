@@ -10,6 +10,7 @@
 package com.example.test.activity;
 
 import com.example.test.binder.Book;
+import com.example.test.binder.ClientActivity;
 import com.example.test.binder.IOnNewBookArrivedListener;
 
 import java.util.List;
@@ -138,9 +139,11 @@ public class TestBinderActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent("com.bb.test.aidl");
-        Intent exIntent = ExplicitIntentUtilsForL.getExplicitIntent(this, intent);
-        bindService(exIntent, mAIDLConnection, Context.BIND_AUTO_CREATE);
+        Intent intent = new Intent(this, ClientActivity.class);
+        startActivity(intent);
+//        Intent intent = new Intent("com.bb.test.aidl");
+//        Intent exIntent = ExplicitIntentUtilsForL.getExplicitIntent(this, intent);
+//        bindService(exIntent, mAIDLConnection, Context.BIND_AUTO_CREATE);
         
 //        Intent intent = new Intent("com.bb.com");
 //        Intent exIntent = ExplicitIntentUtilsForL.getExplicitIntent(this, intent);

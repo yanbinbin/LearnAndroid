@@ -6,6 +6,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_save_drawable">SaveDrawableActivity</string>
     <string name="title_activity_save_json_array">SaveJsonArrayActivity</string>
+    <string name="send">发送</string>
 
     
     <string name="item_hover">Hover鼠标测试</string>
