@@ -23,4 +23,5 @@
     <string name="item_serializable_parcelable">测试序列化</string>
     <string name="item_binder">测试Binder</string>
     <string name="item_volley">测试Volley</string>
+    <string name="item_view">测试View</string>
 </resources>

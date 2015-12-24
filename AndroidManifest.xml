@@ -154,6 +154,16 @@
                 <category android:name="android.intent.category.bb" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.example.test.views.TestView"
+            android:label="@string/item_view" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.test.asimplecachedemo.AboutActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveBitmapActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveJsonObjectActivity" />
