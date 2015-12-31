@@ -15,6 +15,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.SystemClock;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.View.OnTouchListener;
+import android.view.ViewTreeObserver.OnGlobalFocusChangeListener;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.TextView;
 
 /**
@@ -43,6 +50,59 @@ public class TestView extends Activity{
         setContentView(R.layout.layout_test_view);
         mTextView = (TextView) findViewById(R.id.textView1);
         mTestScrollerView = (MyScrollerView) findViewById(R.id.textView2);
+        mTestScrollerView.setOnTouchListener(new OnTouchListener() {
+            
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                Log.d("bb", "子控件的onTouch()被调用...");
+                return false;
+            }
+        });
+        mTextView.post(new Runnable() {
+            
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                Log.d("bb", "Runnable() ... mTextView.getHeight = " + mTextView.getHeight());
+            }
+        });
+        ViewTreeObserver observer = mTextView.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+            
+            @Override
+            public void onGlobalLayout() {
+                // TODO Auto-generated method stub
+                Log.d("bb", "onGlobalLayout()...");
+            }
+        });
+        observer.addOnGlobalFocusChangeListener(new OnGlobalFocusChangeListener() {
+            
+            @Override
+            public void onGlobalFocusChanged(View oldFocus, View newFocus) {
+                // TODO Auto-generated method stub
+                Log.d("bb", "onGlobalFocusChanged()...");
+            }
+        });
+        Log.d("bb", "onCreate() ... mTextView.getHeight = " + mTextView.getHeight());
+    }
+    /* (non-Javadoc)
+     * @see android.app.Activity#onStart()
+     */
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        Log.d("bb", "onStart() ... mTextView.getHeight = " + mTextView.getHeight());
+        super.onStart();
+    }
+    /* (non-Javadoc)
+     * @see android.app.Activity#onWindowFocusChanged(boolean)
+     */
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        // TODO Auto-generated method stub
+        Log.d("bb", "onWindowFocusChanged() ... mTextView.getHeight = " + mTextView.getHeight());
+        super.onWindowFocusChanged(hasFocus);
     }
     /* (non-Javadoc)
      * @see android.app.Activity#onResume()
@@ -65,6 +125,7 @@ public class TestView extends Activity{
 //        }).start();
         new NonUiThread().start();
         mTestScrollerView.smoothScrollTo(50, 0);
+        Log.d("bb", "onResume() ... mTextView.getHeight = " + mTextView.getHeight());
         super.onResume();
     }
 
@@ -85,5 +146,14 @@ public class TestView extends Activity{
             Looper.loop();
             super.run();
         }
+    }
+    /* (non-Javadoc)
+     * @see android.app.Activity#onTouchEvent(android.view.MotionEvent)
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // TODO Auto-generated method stub
+        Log.d("bb", "activity中的onTouchEvent() " + event.getAction());
+        return super.onTouchEvent(event);
     }
 }

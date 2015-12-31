@@ -8,6 +8,8 @@ package com.example.test.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
 import android.widget.TextView;
@@ -92,6 +94,37 @@ public class MyScrollerView extends TextView {
         int deltaX = destX - scrollX;
         mScroller.startScroll(scrollX, 0, deltaX, 0, 4000);
         invalidate();
+    }
+
+    /* (non-Javadoc)
+     * @see android.view.View#dispatchTouchEvent(android.view.MotionEvent)
+     * 默认会被拦截
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        // TODO Auto-generated method stub
+        Log.d("bb", "子类dispatchTouchEvent()：" + event.getAction());
+        return super.dispatchTouchEvent(event);
+    }
+
+    /* (non-Javadoc)
+     * @see android.widget.TextView#onTouchEvent(android.view.MotionEvent)
+     * 默认会消费
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // TODO Auto-generated method stub
+        Log.d("bb", "子类onTouchEvent()：" + event.getAction());
+        return false;
+    }
+
+    /* (non-Javadoc)
+     * @see android.widget.TextView#onMeasure(int, int)
+     */
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // TODO Auto-generated method stub
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
 }
