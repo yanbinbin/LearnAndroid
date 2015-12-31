@@ -6,12 +6,15 @@
     android:longClickable="true"
     tools:context=".DrawTest" >
 
+    <!-- xmlns:app="http://schemas.android.com/apk/com.example.test" -->
     <com.example.test.views.CircleView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/mycicle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_margin="30dp"
+        app:circle_color="#aa00dd"
         android:padding="40dp"
         android:background="#000000" />
 

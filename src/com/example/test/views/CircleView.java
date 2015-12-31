@@ -6,7 +6,10 @@
 
 package com.example.test.views;
 
+import com.example.test.R;
+
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -24,7 +27,7 @@ import android.view.View;
  */
 public class CircleView extends View {
 
-    private int mColor = Color.RED;
+    private int mColor;
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     /**
@@ -57,6 +60,8 @@ public class CircleView extends View {
      */
     public CircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CircleView);
+        mColor = array.getColor(R.styleable.CircleView_circle_color, Color.RED);
         init();
         // TODO Auto-generated constructor stub
     }
