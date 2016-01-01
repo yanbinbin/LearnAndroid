@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="com.ybb.test"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.ybb.test" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -137,8 +137,8 @@
         </activity>
         <activity
             android:name=".activity.TestBinderActivity"
-            android:label="@string/item_binder" 
-            android:permission="com.ybb.test">
+            android:label="@string/item_binder"
+            android:permission="com.ybb.test" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -154,10 +154,18 @@
                 <category android:name="android.intent.category.bb" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.example.test.views.TestView"
             android:label="@string/item_view" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.remoteview.TestRemoteView"
+            android:label="@string/item_remote_view" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -184,8 +192,20 @@
         </activity>
         <activity android:name="com.example.test.binder.ClientActivity" >
         </activity>
+
         <service android:name="com.example.test.binder.SocketService" >
         </service>
+
+        <receiver android:name="com.example.test.remoteview.MyAppWidgetProvider" >
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info" />
+
+            <intent-filter>
+                <action android:name="com.bb.test.action.CLICK"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

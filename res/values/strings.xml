@@ -24,4 +24,5 @@
     <string name="item_binder">测试Binder</string>
     <string name="item_volley">测试Volley</string>
     <string name="item_view">测试View</string>
+    <string name="item_remote_view">RemoteView</string>
 </resources>
