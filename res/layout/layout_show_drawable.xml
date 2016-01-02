@@ -20,4 +20,10 @@
         android:layout_height="100dp"
         android:background="@drawable/my_shape_drawable" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_layer_drawable"
+        android:hint="aaaaaaaaaaaa" />
+
 </LinearLayout>
