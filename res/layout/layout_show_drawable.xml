@@ -35,4 +35,11 @@
         android:background="@drawable/my_state_list_drawable"
         android:text="StateListDrawable" />
 
+    <ImageView
+        android:id="@+id/icon_level_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/my_level_list_drawable" />
+
 </LinearLayout>
