@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.test.R;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +15,9 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -24,6 +29,16 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mTestsView = getListView();
+        // 代码实现LayoutAnimation
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_listview_item);
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
+        controller.setDelay(0.5f);
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        mTestsView.setLayoutAnimation(controller);
+//        Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_listview);
+//        LayoutAnimationController controller = new LayoutAnimationController(animation);
+//        mTestsView.setLayoutAnimation(controller);
         initViews();
     }
 
