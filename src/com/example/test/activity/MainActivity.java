@@ -124,5 +124,6 @@ public class MainActivity extends ListActivity {
         Intent intent = new Intent((Intent)map.get("intent"));
         intent.addCategory("android.intent.category.bb");
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }
