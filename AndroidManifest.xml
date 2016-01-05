@@ -232,6 +232,8 @@
 
         <service android:name="com.example.test.binder.SocketService" >
         </service>
+        <service android:name="com.example.test.threadExecutor.MyIntentService" >
+        </service>
 
         <receiver android:name="com.example.test.remoteview.MyAppWidgetProvider" >
             <meta-data

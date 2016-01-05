@@ -10,6 +10,8 @@
 package com.example.test.threadExecutor;
 
 import android.app.Activity;
+import android.app.IntentService;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -39,10 +41,18 @@ public class LearnExecutor extends Activity {
         new MyAsyncTask("线程4").execute();
         new MyAsyncTask("线程5").execute();*/
         // 并行执行
-        new MyAsyncTask("线程1").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        /*new MyAsyncTask("线程1").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
         new MyAsyncTask("线程2").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
         new MyAsyncTask("线程3").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
         new MyAsyncTask("线程4").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
-        new MyAsyncTask("线程5").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        new MyAsyncTask("线程5").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);*/
+        // 测试IntentService
+        Intent intent = new Intent(LearnExecutor.this, MyIntentService.class);
+        intent.setAction("aaa");
+        startService(intent);
+        intent.setAction("bbb");
+        startService(intent);
+        intent.setAction("com.bb.test.action.INTENTSERVICE");
+        startService(intent);
     }
 }
