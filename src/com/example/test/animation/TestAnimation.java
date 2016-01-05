@@ -18,7 +18,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -93,9 +95,31 @@ public class TestAnimation extends Activity {
                 ObjectAnimator.ofFloat(target, "scaleY", 1, 0.5f),
                 ObjectAnimator.ofFloat(target, "alpha", 1, 0.25f, 1));
         set.setDuration(5000).start();**/
-        AnimatorSet set = (AnimatorSet)AnimatorInflater.loadAnimator(TestAnimation.this, R.anim.anim_property_set);
+        /**
+         * xml 的方式加载属性动画
+         */
+        /*AnimatorSet set = (AnimatorSet)AnimatorInflater.loadAnimator(TestAnimation.this, R.anim.anim_property_set);
         set.setTarget(target);
-        set.start();
+        set.start();*/
+        /**
+         * 包装类包装原始对象，间接提供get/set方法
+         */
+        ViewWrapper wrapper = new ViewWrapper(target);
+        ObjectAnimator.ofInt(wrapper, "height", 500).setDuration(2000).start();
+    }
+
+    private static class ViewWrapper{
+        private View mTarget;
+        public ViewWrapper(View view) {
+            mTarget = view;
+        }
+        public int getHeight() {
+            return mTarget.getLayoutParams().height;
+        }
+        public void setHeight(int height) {
+            mTarget.getLayoutParams().height = height;
+            mTarget.requestLayout();
+        }
     }
 
 }
