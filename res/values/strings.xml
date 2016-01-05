@@ -26,4 +26,5 @@
     <string name="item_view">测试View</string>
     <string name="item_remote_view">RemoteView</string>
     <string name="item_drawable">测试Drawable</string>
+    <string name="item_animation">动画Animation</string>
 </resources>

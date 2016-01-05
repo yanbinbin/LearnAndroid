@@ -181,6 +181,15 @@
                 <category android:name="android.intent.category.bb" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.test.animation.TestAnimation"
+            android:label="@string/item_animation" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.bb" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.test.asimplecachedemo.AboutActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveBitmapActivity" />
         <activity android:name="com.example.test.asimplecachedemo.SaveJsonObjectActivity" />
