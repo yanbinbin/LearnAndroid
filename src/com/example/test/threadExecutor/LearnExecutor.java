@@ -10,6 +10,7 @@
 package com.example.test.threadExecutor;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 /**
@@ -31,10 +32,17 @@ public class LearnExecutor extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        new MyAsyncTask("线程1").execute();
+        // 串行执行
+        /*new MyAsyncTask("线程1").execute();
         new MyAsyncTask("线程2").execute();
         new MyAsyncTask("线程3").execute();
         new MyAsyncTask("线程4").execute();
-        new MyAsyncTask("线程5").execute();
+        new MyAsyncTask("线程5").execute();*/
+        // 并行执行
+        new MyAsyncTask("线程1").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        new MyAsyncTask("线程2").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        new MyAsyncTask("线程3").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        new MyAsyncTask("线程4").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        new MyAsyncTask("线程5").executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
     }
 }
