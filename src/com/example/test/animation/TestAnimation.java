@@ -11,8 +11,10 @@ import com.example.test.R;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
+import android.animation.IntEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,7 +67,7 @@ public class TestAnimation extends Activity {
      * @author meitu.yanbb
      * @since MT 1.0
      */
-    private void testObjectAnimation(View target) {
+    private void testObjectAnimation(final View target) {
         // TODO Auto-generated method stub
         // ObjectAnimator.ofFloat(target, "translationY",
         // -target.getHeight()).start();
@@ -104,8 +106,31 @@ public class TestAnimation extends Activity {
         /**
          * 包装类包装原始对象，间接提供get/set方法
          */
-        ViewWrapper wrapper = new ViewWrapper(target);
-        ObjectAnimator.ofInt(wrapper, "height", 500).setDuration(2000).start();
+        /**ViewWrapper wrapper = new ViewWrapper(target);
+        ObjectAnimator.ofInt(wrapper, "height", 500).setDuration(2000).start();**/
+        /**
+         * 采用ValueAnimator，监听动画过程，自己实现属性的改变
+         */
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(1, 100);
+        valueAnimator.addUpdateListener(new AnimatorUpdateListener() {
+            // 持有一个IntEvaluator对象，方便估值
+            private IntEvaluator evaluator = new IntEvaluator();
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                // TODO Auto-generated method stub
+                // 获得动画的进度值，整形，1~100之间
+                int currentValue = (Integer)animation.getAnimatedValue();
+                Log.d("bb", "animation current value = " + currentValue);
+
+                // 获得当前进度占整个动画过程的比例，浮点型，0~1之间
+                float fraction = animation.getAnimatedFraction();
+                Log.d("bb", "current fraction = " + fraction);
+                // 直接调用整形估值器，通过比例计算出宽度
+                target.getLayoutParams().width = evaluator.evaluate(fraction, 0, 400);
+                target.requestLayout();
+            }
+        });
+        valueAnimator.setDuration(5000).start();
     }
 
     private static class ViewWrapper{
