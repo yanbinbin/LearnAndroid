@@ -29,4 +29,5 @@
     <string name="item_animation">动画Animation</string>
     <string name="item_handler">理解Android消息机制</string>
     <string name="item_thread_executor">Android线程与线程池</string>
+    <string name="item_bitmap_cache">Bitmap的加载和Cache</string>
 </resources>
